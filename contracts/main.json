@@ -1,0 +1,41 @@
+{
+    "Broker": {
+        "abi": [
+            {
+                "constant": false,
+                "inputs": [
+                    {
+                        "name": "to",
+                        "type": "address"
+                    }
+                ],
+                "name": "challenge",
+                "outputs": [],
+                "type": "function"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": false,
+                        "name": "from",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "name": "to",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "name": "at",
+                        "type": "address"
+                    }
+                ],
+                "name": "Notification",
+                "type": "event"
+            }
+        ],
+        "code": "606060405260718060106000396000f3606060405260e060020a600035046372fb97038114601a575b005b601860043573ffffffffffffffffffffffffffffffffffffffff338181166060908152918316608052600060a052907fd8219c5d48118ce884c7ceca4c7a59d2a0f2bccda47484987032c7020f3dfd0d9080a1505056"
+    }
+}
