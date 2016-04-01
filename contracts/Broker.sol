@@ -1,12 +1,23 @@
 import './Match.sol';
 
 contract Broker {
-    enum GameType {NaughtCross};
-    function setup(uint8 typeId) returns (Match) {
-        var type = GameType(typeId);
-        if (type == GameType.NaughtCross) {
-            return new NaughtCrossGame(x, y);
+
+    uint8 constant public version = 0;
+
+    enum GameType {NaughtCross}
+
+    Watcher watcher;
+
+    function setup(address x, address y, uint8 gameTypeId) returns (Match) {
+        var gameType = GameType(gameTypeId);
+        if (gameType == GameType.NaughtCross) {
+            return new NaughtCross(x, y, watcher);
         }
         throw;
+    }
+
+    function callback(Watcher _watcher) {
+        if (address(watcher) != 0x0) throw;
+        watcher = _watcher;
     }
 }
