@@ -1,0 +1,42 @@
+div.center {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.constrict {
+    max-width: 800px;
+    width: 100%;
+}
+
+div.split {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.card {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 1em;
+    margin: 1em;
+    box-shadow: 0 1px 4px 0;
+    border-radius: 3px;
+}
+
+div.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+
+span.press {
+    cursor: pointer;
+}
+
+span.greyed {
+    color: #666;
+}
+
+span.press:hover {
+    color: blue;
+}

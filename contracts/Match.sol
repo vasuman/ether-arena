@@ -7,6 +7,8 @@ contract Match {
 
     uint8 constant public version = 0;
 
+    enum GameType {NaughtCross}
+
     enum State {Initial, Pending, Accepted, Rejected, Playing, Finished}
     enum Result {Draw, Win, Lose}
 

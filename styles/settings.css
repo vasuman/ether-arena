@@ -1,0 +1,9 @@
+div.eth-setting {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
+}
+
+button.eth-refresh-button {
+    margin-left: 0.3em;
+}

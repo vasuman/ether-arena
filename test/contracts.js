@@ -2,21 +2,34 @@ import test from 'ava';
 import Web3 from 'web3';
 import {utils} from 'gooey';
 
-const toDeploy = ['Arena', 'Broker'];
-const pattern = '../../contracts/*.sol';
+const configPath = '../contracts/config.json';
+const contractDir = '../contracts/';
+
+const web3 = new Web3(new Web3.providers.HttpProvider());
+
+function getAccounts() {
+  return new Promise((res, rej) => {
+    web3.eth.getAccounts((err, acc) => {
+      if (err) {
+        return rej(err);
+      }
+      res(acc);
+    });
+  });
+}
+
+let accounts;
 
 let arena;
 let broker;
 let Match;
-let web3;
-let accounts;
 
-test.before('contract compiles', async t => {
-  let provider = new Web3.providers.HttpProvider('http://localhost:8545');
-  web3 = new Web3(provider);
-  accounts = await utils.getAccounts(web3);
+test.before('contracts compile', async t => {
+  accounts = await getAccounts();
   t.true(accounts.length > 1);
-  let contracts = await utils.compileDeploy(web3, accounts[0], toDeploy, pattern);
+  let config = require(configPath);
+  let sources = utils.getSources(contractDir, '.sol');
+  let contracts = await utils.setupTest(web3, config, sources);
   ({Arena: arena, Broker: broker, Match} = contracts);
   t.ok(arena.address);
   t.ok(broker.address);
@@ -33,23 +46,7 @@ test.serial.cb('creator is owner', t => {
   });
 });
 
-test.serial.cb('owner sets broker', t => {
-  let brokerAddr = broker.address;
-  arena.setBroker(brokerAddr, {from: accounts[0]}, err => {
-    if (err) {
-      return t.end(err);
-    }
-    arena.broker((err, addr) => {
-      if (err) {
-        return t.end(err);
-      }
-      t.is(addr, brokerAddr);
-      t.end();
-    });
-  });
-});
-
-test.cb('challenging another player sends a notification', t => {
+test.cb('challenge another player', t => {
   arena.challenge(accounts[1], 0, {from: accounts[0], value: 1}, err => {
     if (err) {
       return t.end(err);

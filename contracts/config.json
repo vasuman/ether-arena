@@ -1,0 +1,17 @@
+{
+    "Arena": {
+        "inject": [{
+            "ref": "Broker",
+            "method": "setBroker"
+        }]
+    },
+    "Broker": {
+        "inject": [{
+            "ref": "Scoreboard",
+            "method": "setScoreboard"
+        }]
+    },
+    "Scoreboard": {
+        "inject": []
+    }
+}

@@ -6,7 +6,7 @@ import ArenaPage from './arena.jsx';
 export default function Root() {
   return (
     <Router history={hashHistory}>
-      <Route path="/" component={ChallengePage} />
+      <Route path="/" component={ArenaPage} />
     </Router>
   );
 }

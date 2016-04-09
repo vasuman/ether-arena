@@ -1,23 +1,22 @@
+import './Owned.sol';
+import './Scoreboard.sol';
 import './Match.sol';
 
-contract Broker {
+contract Broker is Owned {
 
     uint8 constant public version = 0;
 
-    enum GameType {NaughtCross}
-
-    Watcher watcher;
+    Scoreboard public scoreboard;
 
     function setup(address x, address y, uint8 gameTypeId) returns (Match) {
-        var gameType = GameType(gameTypeId);
-        if (gameType == GameType.NaughtCross) {
-            return new NaughtCross(x, y, watcher);
+        var gameType = Match.GameType(gameTypeId);
+        if (gameType == Match.GameType.NaughtCross) {
+            return new NaughtCross(x, y, scoreboard);
         }
         throw;
     }
 
-    function callback(Watcher _watcher) {
-        if (address(watcher) != 0x0) throw;
-        watcher = _watcher;
+    function setScoreboard(Scoreboard _scoreboard) by(owner) {
+        scoreboard = _scoreboard;
     }
 }

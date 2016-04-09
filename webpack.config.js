@@ -1,3 +1,7 @@
+'use strict';
+
+const path = require('path');
+
 module.exports = {
   entry: ['./src/main.js'],
   output: {
@@ -7,11 +11,17 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      exclude: /(node_modules|bower_components)/,
+      include: path.join(__dirname, 'src'),
       loader: 'babel',
       query: {
         presets: ['es2015', 'react']
       }
+    }, {
+      test: /\.css$/,
+      loader: 'style!css'
+    }, {
+      test: /\.json$/,
+      loader: 'json'
     }]
   },
   devServer: {

@@ -1,13 +1,12 @@
-import './Match.sol';
+import './Owned.sol';
 import './Broker.sol';
 
-contract Arena is Watcher {
+contract Arena is Owned {
 
     uint8 constant public version = 0;
 
-    event Notification(address from, address to, address at);
+    event Notification(address from, address to, address at, uint8 gameType);
 
-    address public owner;
     Broker public broker;
 
     modifier nonzero() {
@@ -15,31 +14,15 @@ contract Arena is Watcher {
         _
     }
 
-    modifier by(address _account) {
-        if (msg.sender != _account) throw;
-        _
-    }
-
-    function Arena() {
-        owner = msg.sender;
-    }
-
-    function kill() by(owner) {
-        suicide(owner);
-    }
-
     function setBroker(address addr) by(owner) {
         broker = Broker(addr);
-        broker.callback(this);
     }
 
-    function challenge(address to, uint8 gameTypeId) nonzero {
+    function challenge(address to, uint8 gameType) nonzero {
         var from = msg.sender;
-        var m = broker.setup(from, to, gameTypeId);
+        var m = broker.setup(from, to, gameType);
         m.init.value(msg.value)();
-        Notification(from, to, m);
+        Notification(from, to, m, gameType);
     }
 
-    function result(address w, address l) {}
-    function draw(address a, address b) {}
 }
