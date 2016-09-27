@@ -2,18 +2,27 @@ import 'babel-polyfill';
 
 import '../styles/main.css';
 
+import node from './node.js';
+import storage from './storage.js';
 import Root from './views/root.jsx';
 
 import React from 'react';
 import {render} from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
+
+function debug() {
+  window.React = React;
+  window.debug = {node, storage};
+}
 
 function init() {
   console.clear();
-  let container = document.createElement('div');
-  container.id = 'root-container';
-  document.body.appendChild(container);
+  node.init();
+  let container = document.getElementById('main');
   render(React.createElement(Root), container);
-  window.React = React;
+  debug();
 }
 
 window.addEventListener('load', init);

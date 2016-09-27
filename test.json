@@ -1,0 +1,524 @@
+{
+  "Arena": {
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "kill",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "gameType",
+            "type": "uint8"
+          }
+        ],
+        "name": "challenge",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "version",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "broker",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "addr",
+            "type": "address"
+          }
+        ],
+        "name": "setBroker",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "name": "at",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "name": "gameType",
+            "type": "uint8"
+          }
+        ],
+        "name": "Notification",
+        "type": "event"
+      }
+    ],
+    "code": "606060405260008054600160a060020a03191633179055610246806100246000396000f3606060405236156100565760e060020a600035046341c0e1b581146100585780634891edf71461007757806354fd4d50146100925780638da5cb5b1461009a578063abff0110146100ac578063bf0d0213146100be575b005b610056600054600160a060020a0390811690331681146100fd57610002565b61005660043560243560006000346000141561010057610002565b6100e0600081565b6100ea600054600160a060020a031681565b6100ea600154600160a060020a031681565b610056600435600054600160a060020a03908116903316811461022357610002565b6060908152602090f35b600160a060020a03166060908152602090f35b80ff5b6001547f20c0c1aa00000000000000000000000000000000000000000000000000000000606090815233600160a060020a03818116606490815281891660845260ff881660a45291955092909216916320c0c1aa9160c491602091908187876161da5a03f1156100025750506040805180517fe1c7392a00000000000000000000000000000000000000000000000000000000825291519193600160a060020a038516935063e1c7392a9234926004818101939291829003018185886185025a03f11561000257505060408051600160a060020a038681168252881660208201528082019390935260ff86166060840152517f2badd9608d246d1e2dbe14f49b614bf07d23f2370c4fc5910bd768c55bccc57f928190036080019150a150505050565b506001805473ffffffffffffffffffffffffffffffffffffffff1916821790555056"
+  },
+  "Broker": {
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "x",
+            "type": "address"
+          },
+          {
+            "name": "y",
+            "type": "address"
+          },
+          {
+            "name": "gameTypeId",
+            "type": "uint8"
+          }
+        ],
+        "name": "setup",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_scoreboard",
+            "type": "address"
+          }
+        ],
+        "name": "setScoreboard",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "kill",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "version",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "scoreboard",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      }
+    ],
+    "code": "606060405260008054600160a060020a0319163317905561011b806100246000396000f3606060405236156100565760e060020a600035046320c0c1aa8114610058578063307da3c31461006b57806341c0e1b51461008d57806354fd4d50146100ac5780638da5cb5b146100b4578063ad5412af146100c6575b005b6100d86004356024356044356000610002565b610056600435600054600160a060020a0390811690331681146100f557610002565b610056600054600160a060020a03908116903316811461011857610002565b6100eb600081565b6100d8600054600160a060020a031681565b6100d8600154600160a060020a031681565b600160a060020a03166060908152602090f35b6060908152602090f35b506001805473ffffffffffffffffffffffffffffffffffffffff19168217905550565b80ff"
+  },
+  "Scoreboard": {
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "a",
+            "type": "address"
+          },
+          {
+            "name": "b",
+            "type": "address"
+          }
+        ],
+        "name": "draw",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "version",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "w",
+            "type": "address"
+          },
+          {
+            "name": "l",
+            "type": "address"
+          }
+        ],
+        "name": "result",
+        "outputs": [],
+        "type": "function"
+      }
+    ],
+    "code": "606060405260438060106000396000f3606060405260e060020a60003504630b033ac28114602e57806354fd4d50146032578063e451fcee14602e575b005b602c565b6039600081565b6060908152602090f3"
+  },
+  "Match": {
+    "abi": [
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "a",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "accept",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "b",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "version",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "result",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "move",
+            "type": "uint256"
+          }
+        ],
+        "name": "play",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "state",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "init",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "name": "_a",
+            "type": "address"
+          },
+          {
+            "name": "_b",
+            "type": "address"
+          },
+          {
+            "name": "_watcher",
+            "type": "address"
+          }
+        ],
+        "type": "constructor"
+      }
+    ],
+    "code": ""
+  },
+  "NaughtCross": {
+    "abi": [
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "a",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "accept",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "b",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "version",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "result",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "move",
+            "type": "uint256"
+          }
+        ],
+        "name": "play",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "state",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "init",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "name": "a",
+            "type": "address"
+          },
+          {
+            "name": "b",
+            "type": "address"
+          },
+          {
+            "name": "w",
+            "type": "address"
+          }
+        ],
+        "type": "constructor"
+      }
+    ],
+    "code": "60606040526040516060806101a383395060c06040525160805160a0516000805460018054600160a060020a03199081169095179055600280549094169092179092556201000060b060020a031916620100009092029190911761ff0019168155600381905561012f90819061007490396000f36060604052361561006c5760e060020a60003504630dbe671f811461006e5780632852b71c146100865780634df7e3d0146100a457806354fd4d50146100b657806365372147146100be5780636898f82b146100ca578063c19d93fb146100cf578063e1c7392a146100e1575b005b6100fb600054620100009004600160a060020a031681565b61006c60015433600160a060020a0390811691161461011857610002565b6100fb600154600160a060020a031681565b61010e600081565b61010e60005460ff1681565b61006c565b61010e60005460ff6101009091041681565b61006c6000805460ff610100909104161461011a57610002565b600160a060020a03166060908152602090f35b6060908152602090f35b565b600080543460035561ff00191661010017905556"
+  },
+  "Owned": {
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "kill",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "type": "constructor"
+      }
+    ],
+    "code": "606060405260008054600160a060020a0319163317905560788060226000396000f3606060405260e060020a600035046341c0e1b5811460245780638da5cb5b14604d575b005b602260005473ffffffffffffffffffffffffffffffffffffffff90811690331681146075576002565b606b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6060908152602090f35b80ff"
+  },
+  "TicTacToe": {
+    "abi": [],
+    "code": "606060405260068060106000396000f3606060405200"
+  },
+  "Watcher": {
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "a",
+            "type": "address"
+          },
+          {
+            "name": "b",
+            "type": "address"
+          }
+        ],
+        "name": "draw",
+        "outputs": [],
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "winner",
+            "type": "address"
+          },
+          {
+            "name": "loser",
+            "type": "address"
+          }
+        ],
+        "name": "result",
+        "outputs": [],
+        "type": "function"
+      }
+    ],
+    "code": ""
+  }
+}

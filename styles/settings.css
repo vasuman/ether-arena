@@ -1,9 +1,7 @@
-div.eth-setting {
-    display: flex;
-    justify-content: center;
-    margin: 0.5em;
+div.setting {
+    margin: 1em;
 }
 
-button.eth-refresh-button {
-    margin-left: 0.3em;
+div.action-holder > button {
+    margin: 0.5em;
 }

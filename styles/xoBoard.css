@@ -1,0 +1,28 @@
+span.xo-column {
+    padding: 5px;
+    border-right: 1px solid;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: xx-large;
+}
+
+span.xo-column:last-child {
+    border: none;
+}
+
+div.xo-row {
+    border-bottom: 1px solid;
+    margin-bottok: 5px;
+    width: auto;
+}
+
+div.xo-row:last-child {
+    border: none;
+}
+
+div.xo-board {
+    margin: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}

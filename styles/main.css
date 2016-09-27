@@ -1,8 +1,32 @@
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
-
 @import url(./normalize.css);
-
-@import url(./modal.css);
-@import url(./nav.css);
-@import url(./components.css);
+@import url(./xoBoard.css);
 @import url(./settings.css);
+
+div.nav {
+    display: flex;
+    padding: 1em 5em;
+    justify-content: space-between;
+    background-color: #ddd;
+    margin-bottom: 2em;
+}
+
+div.status-offline {
+    background-color: #faa;
+}
+
+div.status-online {
+    background-color: #afa;
+}
+
+div.page {
+    text-align: center;
+}
+
+div.account-selector {
+    display: inline-block;
+}
+
+div.account-selector > select {
+    margin: 0 0.5em;
+    display: inline-block;
+}

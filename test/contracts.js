@@ -46,7 +46,7 @@ test.serial.cb('creator is owner', t => {
   });
 });
 
-test.cb('challenge another player', t => {
+test.serial.cb('challenge another player', t => {
   arena.challenge(accounts[1], 0, {from: accounts[0], value: 1}, err => {
     if (err) {
       return t.end(err);

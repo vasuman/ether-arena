@@ -9,14 +9,11 @@ contract Broker is Owned {
     Scoreboard public scoreboard;
 
     function setup(address x, address y, uint8 gameTypeId) returns (Match) {
-        var gameType = Match.GameType(gameTypeId);
-        if (gameType == Match.GameType.NaughtCross) {
-            return new NaughtCross(x, y, scoreboard);
-        }
         throw;
     }
 
     function setScoreboard(Scoreboard _scoreboard) by(owner) {
         scoreboard = _scoreboard;
     }
+
 }
